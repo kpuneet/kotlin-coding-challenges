@@ -4,7 +4,28 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun isPalindrome(str: String): Boolean {
-    TODO("not implemented")
+    /*val chars = str.toCharArray()
+    val size = chars.size
+    var i = 0
+    var j = size-1
+    while ( i < size ) {
+        if(i == ((size -1)/2)) return true
+        if (chars[i] == chars[j]) {
+            i++
+            j--
+        } else return false
+    }
+    return false*/
+
+    return if (str.isEmpty() || str.length == 1) {
+        true
+    } else {
+        if (str.first() == str.last()) {
+            isPalindrome(str.substring(1 until str.lastIndex))
+        } else {
+            false
+        }
+    }
 }
 
 private class Test {

@@ -4,7 +4,10 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun isPermutationPalindrome(str: String): Boolean {
-    TODO("not implemented")
+    val charMap = str.groupingBy { it }.eachCount()
+    val filtered = charMap.filter { it.value % 2 ==1}
+    return filtered.size <= 1
+
 }
 
 private class Test {
@@ -14,8 +17,8 @@ private class Test {
     }
 
     @Test
-    fun `"ookvk" is a palindrome`() {
-        isPermutationPalindrome("ookvk") shouldBeEqualTo true
+    fun `"ooookvk" is a palindrome`() {
+        isPermutationPalindrome("ooookvk") shouldBeEqualTo true
     }
 
     @Test

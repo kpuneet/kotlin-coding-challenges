@@ -6,14 +6,21 @@ import java.util.HashMap
 
 private fun longestWord(str: String): String {
 
-    var arr = intArrayOf()
+    /*var arr = intArrayOf()
     val map =  str.split(" ").mapIndexed { index, s ->
          arr[s.length]
          s.length to index
      }.toMap()
 
     arr.sortDescending()
-    return map.keys
+    return map.keys*/
+
+    return str.map { if (it.isLetter()) it else ' ' }
+        .joinToString(separator = "")
+        .split(" ")
+        .filterNot { it.isBlank() }
+        .maxByOrNull { it.length }
+        ?: ""
 
 }
 
