@@ -5,7 +5,7 @@ private object Solution1 {
     private fun maxOccurrentChar(str: String): Char? {
         return str.toCharArray()
             .groupBy { it }
-            .maxBy { it.value.size }
+            .maxByOrNull { it.value.size }
             ?.key
     }
 }
@@ -16,7 +16,7 @@ private object Solution2 {
         return str.toList()
             .groupingBy { it }
             .eachCount()
-            .maxBy { it.value }
+            .maxByOrNull { it.value }
             ?.key
     }
 }
@@ -29,7 +29,7 @@ private object Solution3 {
             map[it] = (map[it] ?: 0) + 1
         }
 
-        return map.maxBy { it.value }?.key
+        return map.maxByOrNull { it.value }?.key
     }
 }
 

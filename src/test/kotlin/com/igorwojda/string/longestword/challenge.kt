@@ -2,9 +2,19 @@ package com.igorwojda.string.longestword
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
+import java.util.HashMap
 
 private fun longestWord(str: String): String {
-    TODO("not implemented")
+
+    var arr = intArrayOf()
+    val map =  str.split(" ").mapIndexed { index, s ->
+         arr[s.length]
+         s.length to index
+     }.toMap()
+
+    arr.sortDescending()
+    return map.keys
+
 }
 
 private class Test {

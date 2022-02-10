@@ -2,9 +2,20 @@ package com.igorwojda.string.decapitalizeconst
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
+import java.util.*
 
 private fun decapitalizeConst(str: String): String {
-    TODO("not implemented")
+    /*val sString = str.split("_").filter { it.isNotEmpty() }
+    if(sString.size <= 1) return ""
+   return sString.mapIndexed { index, s ->
+        if(index == 0) s.toLowerCase(Locale.ROOT)
+        else s.first().toUpperCase() + s.drop(1).toLowerCase()
+    }.joinToString("")*/
+
+    val subsStringsList = str.split("_").map { it ->
+        it.lowercase(Locale.getDefault())
+        .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } }
+    return subsStringsList.joinToString("").decapitalize()
 }
 
 private class Test {

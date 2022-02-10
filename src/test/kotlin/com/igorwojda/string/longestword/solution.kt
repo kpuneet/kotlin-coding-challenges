@@ -6,7 +6,7 @@ private object Solution1 {
             .joinToString(separator = "")
             .split(" ")
             .filterNot { it.isBlank() }
-            .maxBy { it.length }
+            .maxByOrNull { it.length }
             ?: ""
     }
 }

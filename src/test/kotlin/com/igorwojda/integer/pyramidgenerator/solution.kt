@@ -117,6 +117,6 @@ private object Solution5 {
             
             list.add("$sideString$hashString$sideString")
         }
-        return list 
+        //return list
     }
 }
